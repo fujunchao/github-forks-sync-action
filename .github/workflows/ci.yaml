@@ -9,7 +9,7 @@ on:
     - cron: 0 */6 * * *
 
 jobs:
-  update_external_airflow_fork:
+  AzurLaneAutoScript:
     runs-on: ubuntu-latest
     steps:
       - uses: fujunchao/github-forks-sync-action@master
@@ -19,5 +19,41 @@ jobs:
           target_repository: fujunchao/AzurLaneAutoScript
           upstream_branch: master
           target_branch: master
+          force: false
+          tags: true
+  faker2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fujunchao/github-forks-sync-action@master
+        with:
+          github_token: ${{ secrets.ACTION_SECRET }}
+          upstream_repository: shufflewzc/faker2
+          target_repository: fujunchao/faker2
+          upstream_branch: main
+          target_branch: main
+          force: false
+          tags: true
+  tv-spider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fujunchao/github-forks-sync-action@master
+        with:
+          github_token: ${{ secrets.ACTION_SECRET }}
+          upstream_repository: sec-an/TV_Spider
+          target_repository: fujunchao/TV_Spider
+          upstream_branch: main
+          target_branch: main
+          force: false
+          tags: true
+  CatVodSpider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fujunchao/github-forks-sync-action@master
+        with:
+          github_token: ${{ secrets.ACTION_SECRET }}
+          upstream_repository: FongMi/CatVodSpider
+          target_repository: fujunchao/CatVodSpider
+          upstream_branch: main
+          target_branch: main
           force: false
           tags: true
