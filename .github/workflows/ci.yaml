@@ -2,17 +2,21 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      -master
+  schedule:
+    - cron: 0 */6 * * *
 
 jobs:
-  statics:
-    name: Static checks
+  update_external_airflow_fork:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: fujunchao/github-forks-sync-action@master
         with:
-          persist-credentials: false
-      - uses: actions/setup-python@v2
-      - uses: pre-commit/action@v2.0.3
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          upstream_repository: LmeSzinc/AzurLaneAutoScript
+          target_repository: fujunchao/AzurLaneAutoScript
+          upstream_branch: master
+          target_branch: master
+          force: false
+          tags: true
