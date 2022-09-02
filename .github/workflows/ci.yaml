@@ -31,7 +31,7 @@ jobs:
           target_repository: fujunchao/faker2
           upstream_branch: main
           target_branch: main
-          force: true
+          force: false
           tags: true
   tv-spider:
     runs-on: ubuntu-latest
