@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: fujunchao/github-forks-sync-action@master
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.ACTION_SECRET }}
           upstream_repository: LmeSzinc/AzurLaneAutoScript
           target_repository: fujunchao/AzurLaneAutoScript
           upstream_branch: master
